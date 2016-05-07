@@ -1,0 +1,54 @@
+<RelativeLayout
+    android:id="@+id/layout_widget"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!-- COUNTER LABELS INVISIBLE FOR NOW! -->
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_margin="5dp"
+        android:orientation="horizontal"
+        android:visibility="gone">
+
+        <TextView
+            android:id="@+id/counterDone_widget"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginRight="5dp"
+            android:background="@drawable/bg_widget_counter_green"
+            android:gravity="center"
+            android:text="0"
+            android:textSize="12dp"/>
+
+        <TextView
+            android:id="@+id/counterNotDone_widget"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:background="@drawable/bg_widget_counter_red"
+            android:gravity="center"
+            android:text="0"
+            android:textSize="12dp"/>
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#50000000"
+        android:padding="5dp">
+
+        <TextView
+            android:id="@+id/textView_widget"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:textSize="12dp"
+            android:typeface="serif"/>
+
+    </LinearLayout>
+
+</RelativeLayout>
