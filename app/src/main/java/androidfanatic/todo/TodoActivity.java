@@ -6,6 +6,8 @@ import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
@@ -123,5 +125,17 @@ public class TodoActivity extends AppCompatActivity implements AdapterView.OnIte
         if (view == fabAddBtn) {
             showDialog();
         }
+    }
+
+    @Override public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_todo, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+
+        }
+        return super.onOptionsItemSelected(item);
     }
 }

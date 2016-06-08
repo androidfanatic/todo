@@ -11,7 +11,8 @@
     <string name="add_new_task">Add New Task</string>
     <string name="item_label">Item</string>
     <string name="zero">0</string>
-    <string name="no_tasks">No Tasks yet.</string>
+    <string name="no_tasks">No Tasks Yet.</string>
     <string name="task_label">Task Label</string>
     <string name="new_task">New Task</string>
+    <string name="preference">Preferences</string>
 </resources>
