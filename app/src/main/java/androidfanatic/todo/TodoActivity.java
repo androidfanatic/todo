@@ -14,7 +14,6 @@ import android.widget.ListView;
 import android.widget.Toast;
 
 public class TodoActivity extends AppCompatActivity implements AdapterView.OnItemClickListener, View.OnClickListener {
-    private ListView mTaskView;
     private TaskAdapter mTaskAdapter;
 
     private boolean backPressed = false;
@@ -29,17 +28,17 @@ public class TodoActivity extends AppCompatActivity implements AdapterView.OnIte
         setContentView(R.layout.activity_todo);
 
         // List and Adapter
-        mTaskView = (ListView) findViewById(R.id.listView_tasks);
-        mTaskView.setEmptyView(findViewById(R.id.empty_view));
+        ListView taskView = (ListView) findViewById(R.id.listView_tasks);
+        taskView.setEmptyView(findViewById(R.id.empty_view));
         mTaskAdapter = new TaskAdapter(this, this);
-        mTaskView.setAdapter(mTaskAdapter);
+        taskView.setAdapter(mTaskAdapter);
 
         // Buttons and Listeners
         fabAddBtn = (FloatingActionButton) findViewById(R.id.fab_add);
         fabAddBtn.setOnClickListener(this);
         swipeDetector = new SwipeDetector();
-        mTaskView.setOnTouchListener(swipeDetector);
-        mTaskView.setOnItemClickListener(this);
+        taskView.setOnTouchListener(swipeDetector);
+        taskView.setOnItemClickListener(this);
     }
 
     @Override
@@ -67,7 +66,7 @@ public class TodoActivity extends AppCompatActivity implements AdapterView.OnIte
     private void showDialog() {
         final AlertDialog dialog = new AlertDialog
                 .Builder(this)
-                .setView(getLayoutInflater().inflate(R.layout.dialog_add, null))
+                .setView(getLayoutInflater().inflate(R.layout.dialog_add, null, false))
                 .create();
         dialog.getWindow().getAttributes().windowAnimations = R.style.MyAnimation_Window;
         dialog.show();
@@ -82,7 +81,7 @@ public class TodoActivity extends AppCompatActivity implements AdapterView.OnIte
             public void onClick(View view) {
                 String taskName = ((EditText) dialog.findViewById(R.id.et_dialog_add)).getText().toString();
                 new Task(taskName).save();
-                showToast("Task added");
+                showToast(getString(R.string.task_added));
                 dialog.dismiss();
                 updateTasks();
             }
@@ -98,7 +97,7 @@ public class TodoActivity extends AppCompatActivity implements AdapterView.OnIte
         new AlertDialog.Builder(getApplicationContext()).setMessage("Error: " + msg).create().show();
     }
 
-    public void showToast(String msg) {
+    private void showToast(String msg) {
         if (toast != null) {
             toast.cancel();
         }

@@ -9,11 +9,13 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:paddingBottom="20dp"
-        android:text="Add New Task"
+        android:text="@string/add_new_task"
         android:textSize="20sp"
         android:textStyle="bold" />
 
     <EditText
+        android:hint="@string/new_task"
+        android:inputType="text"
         android:id="@+id/et_dialog_add"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
@@ -21,7 +23,7 @@
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="right"
+        android:layout_gravity="right|end"
         android:orientation="horizontal">
 
 
@@ -31,14 +33,14 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:singleLine="true"
-            android:text="Cancel" />
+            android:text="@string/cancel" />
 
         <Button
             android:id="@+id/btn_dialog_add"
             style="?buttonBarPositiveButtonStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Add" />
+            android:text="@string/add" />
 
     </LinearLayout>
 

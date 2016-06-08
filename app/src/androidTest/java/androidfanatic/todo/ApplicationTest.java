@@ -1,4 +1,4 @@
-package in.geekmanish.materialtodo;
+package androidfanatic.todo;
 
 import android.app.Application;
 import android.test.ApplicationTestCase;

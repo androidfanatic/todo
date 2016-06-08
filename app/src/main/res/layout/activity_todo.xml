@@ -3,7 +3,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FFFFFF"
+    android:animateLayoutChanges="true"
     android:padding="@dimen/layout_pad">
 
     <ListView
@@ -22,6 +22,7 @@
         <ImageView
             android:layout_width="64dp"
             android:layout_height="64dp"
+            android:contentDescription="@string/add_new_task"
             android:src="@drawable/ic_event_note_teal_200_48dp"/>
 
         <android.support.v4.widget.Space
@@ -31,7 +32,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="No Tasks yet."/>
+            android:text="@string/no_tasks"/>
 
     </LinearLayout>
 
@@ -40,7 +41,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
+        android:layout_margin="16dp"
         android:src="@drawable/ic_add_circle"/>
 
 </RelativeLayout>

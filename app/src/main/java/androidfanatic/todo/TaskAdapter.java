@@ -17,20 +17,18 @@ import java.util.List;
 
 public class TaskAdapter extends BaseAdapter {
 
-    Typeface mTypeface;
+    private final Typeface mTypeface;
+    private final TodoActivity mActivity;
     private List<Task> mTasks;
-    private androidfanatic.todo.TodoActivity mActivity;
-    private Context mContext;
 
     public TaskAdapter(androidfanatic.todo.TodoActivity activity, Context context) {
         mActivity = activity;
-        mContext = context;
         mTypeface = Typeface.createFromAsset(activity.getAssets(), "font.ttf");
         refresh();
     }
 
     public void refresh() {
-        mTasks = Task.listAll(Task.class, "id desc");
+        mTasks = Task.listAll(Task.class, "id DESC");
     }
 
     public void toggleDone(int position) {
@@ -48,7 +46,7 @@ public class TaskAdapter extends BaseAdapter {
     public View getView(int i, View view, ViewGroup viewGroup) {
         LayoutInflater inflater = mActivity.getLayoutInflater();
         Task task = mTasks.get(i);
-        view = inflater.inflate(R.layout.layout_row, null);
+        view = inflater.inflate(R.layout.layout_row, viewGroup, false);
         TextView textView = (TextView) view.findViewById(R.id.tv_task_name);
         textView.setText(task.getName());
         ImageView imageView = (ImageView) view.findViewById(R.id.iv_task_icon);
@@ -56,7 +54,7 @@ public class TaskAdapter extends BaseAdapter {
         try {
             first = String.valueOf(task.getName().charAt(0)).toUpperCase();
         } catch (Exception e) {
-
+            e.printStackTrace();
         }
         imageView.setImageDrawable(TextDrawable.builder().buildRound(first, ColorGenerator.MATERIAL.getColor(first)));
         if (task.isDone()) {
