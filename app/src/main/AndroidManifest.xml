@@ -25,7 +25,7 @@
 
 
         <activity
-            android:name=".TodoActivity"
+            android:name=".main.TodoActivity"
             android:label="@string/app_name"
             android:logo="@drawable/ic_launcher">
             <intent-filter>
@@ -33,7 +33,18 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <receiver android:name=".TaskWidgetProvider">
+
+        <activity
+            android:label="@string/preference"
+            android:name=".pref.PreferenceActivity"
+            android:parentActivityName=".main.TodoActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".main.TodoActivity"/>
+        </activity>
+
+
+        <receiver android:name=".widget.TaskWidgetProvider">
             <intent-filter>
                 <action android:name="android.appwidget.action.APPWIDGET_UPDATE"/>
             </intent-filter>

@@ -1,4 +1,4 @@
-package androidfanatic.todo;
+package androidfanatic.todo.models;
 
 
 import com.orm.SugarRecord;

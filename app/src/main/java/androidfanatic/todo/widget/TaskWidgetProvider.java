@@ -1,4 +1,4 @@
-package androidfanatic.todo;
+package androidfanatic.todo.widget;
 
 import android.app.PendingIntent;
 import android.appwidget.AppWidgetManager;
@@ -9,8 +9,8 @@ import android.content.Intent;
 import android.widget.RemoteViews;
 
 import androidfanatic.todo.R;
-import androidfanatic.todo.Task;
-import androidfanatic.todo.TodoActivity;
+import androidfanatic.todo.main.TodoActivity;
+import androidfanatic.todo.models.Task;
 
 public class TaskWidgetProvider extends AppWidgetProvider {
 

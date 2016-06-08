@@ -1,4 +1,4 @@
-package androidfanatic.todo;
+package androidfanatic.todo.main;
 
 import android.content.Context;
 import android.graphics.Paint;
@@ -15,13 +15,16 @@ import com.amulyakhare.textdrawable.util.ColorGenerator;
 
 import java.util.List;
 
+import androidfanatic.todo.R;
+import androidfanatic.todo.models.Task;
+
 public class TaskAdapter extends BaseAdapter {
 
     private final Typeface mTypeface;
     private final TodoActivity mActivity;
     private List<Task> mTasks;
 
-    public TaskAdapter(androidfanatic.todo.TodoActivity activity, Context context) {
+    public TaskAdapter(TodoActivity activity, Context context) {
         mActivity = activity;
         mTypeface = Typeface.createFromAsset(activity.getAssets(), "font.ttf");
         refresh();

@@ -1,4 +1,4 @@
-package androidfanatic.todo;
+package androidfanatic.todo.utils;
 
 import android.view.MotionEvent;
 import android.view.View;

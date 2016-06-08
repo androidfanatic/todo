@@ -1,7 +1,8 @@
-package androidfanatic.todo;
+package androidfanatic.todo.main;
 
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AlertDialog;
@@ -14,6 +15,12 @@ import android.widget.AdapterView;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Toast;
+
+import androidfanatic.todo.R;
+import androidfanatic.todo.models.Task;
+import androidfanatic.todo.pref.PreferenceActivity;
+import androidfanatic.todo.utils.SwipeDetector;
+import androidfanatic.todo.widget.TaskWidgetProvider;
 
 public class TodoActivity extends AppCompatActivity implements AdapterView.OnItemClickListener, View.OnClickListener {
     private TaskAdapter mTaskAdapter;
@@ -134,7 +141,9 @@ public class TodoActivity extends AppCompatActivity implements AdapterView.OnIte
 
     @Override public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
-
+            case R.id.action_pref:
+                startActivity(new Intent(this, PreferenceActivity.class));
+                return true;
         }
         return super.onOptionsItemSelected(item);
     }
