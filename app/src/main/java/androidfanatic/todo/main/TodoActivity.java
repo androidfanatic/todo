@@ -48,10 +48,7 @@ public class TodoActivity extends AppCompatActivity implements AdapterView.OnIte
         swipeDetector = new SwipeDetector();
         taskView.setOnTouchListener(swipeDetector);
         taskView.setOnItemClickListener(this);
-
-        // todo remove
-        startActivity(new Intent(this, PreferenceActivity.class));
-    }
+  }
 
     @Override
     public void onItemClick(AdapterView<?> arg0, View arg1, final int position, long arg3) {
