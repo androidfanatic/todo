@@ -6,11 +6,14 @@ import android.appwidget.AppWidgetProvider;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.preference.PreferenceManager;
 import android.widget.RemoteViews;
 
 import androidfanatic.todo.R;
 import androidfanatic.todo.main.TodoActivity;
 import androidfanatic.todo.models.Task;
+import androidfanatic.todo.utils.ColorUtil;
 
 public class TaskWidgetProvider extends AppWidgetProvider {
 
@@ -24,32 +27,30 @@ public class TaskWidgetProvider extends AppWidgetProvider {
     }
 
     public void onUpdate(Context context, AppWidgetManager appWidgetManager, int[] appWidgetIds) {
-        final int N = appWidgetIds.length;
 
+        final int N = appWidgetIds.length;
+        SharedPreferences prefMgr = PreferenceManager.getDefaultSharedPreferences(context);
+        String fgColorStr = prefMgr.getString(context.getString(R.string.pref_key_fg), ColorUtil.defaultColorHex);
+        String bgColorStr = prefMgr.getString(context.getString(R.string.pref_key_bg), ColorUtil.defaultColorHex);
+
+        int fgColor = ColorUtil.hex2int(fgColorStr);
+        int bgColor = ColorUtil.hex2int(bgColorStr);
 
         // Perform this loop procedure for each App Widget that belongs to this provider
         for (int i = 0; i < N; i++) {
-
-            int notDone = 0;
-            int done = 0;
 
             StringBuilder tasks = new StringBuilder();
 
             for (Task task : Task.listAll(Task.class, "id DESC")) {
                 tasks.append(task.getWidgetString());
-                if (task.isDone()) {
-                    done++;
-                } else {
-                    notDone++;
-                }
             }
 
             int appWidgetId = appWidgetIds[i];
             RemoteViews views = new RemoteViews(context.getPackageName(), R.layout.widget_home);
             views.setTextViewText(R.id.textView_widget, tasks.toString());
 
-            views.setTextViewText(R.id.counterDone_widget, String.valueOf(done));
-            views.setTextViewText(R.id.counterNotDone_widget, String.valueOf(notDone));
+            views.setInt(R.id.layout_widget, "setBackgroundColor", bgColor);
+            views.setInt(R.id.textView_widget, "setTextColor", fgColor);
 
             // Set onclick
             Intent configIntent = new Intent(context, TodoActivity.class);

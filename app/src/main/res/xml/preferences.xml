@@ -2,12 +2,12 @@
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
 
     <androidfanatic.todo.pref.ColorPickerPreference
-        android:key="pref_color"
+        android:key="@string/pref_key_fg"
         android:summary="Color for widget texts, icons"
         android:title="Widget foreground color"/>
 
     <androidfanatic.todo.pref.ColorPickerPreference
-        android:key="pref_color"
+        android:key="@string/pref_key_bg"
         android:summary="Background color; may also be transparent"
         android:title="Widget background color"/>
 

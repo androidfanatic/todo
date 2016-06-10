@@ -4,46 +4,9 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <!-- COUNTER LABELS INVISIBLE FOR NOW! -->
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
-        android:layout_margin="5dp"
-        android:orientation="horizontal"
-        android:visibility="gone">
-
-        <TextView
-            android:id="@+id/counterDone_widget"
-            android:layout_width="24dp"
-            android:layout_height="24dp"
-            android:layout_marginEnd="4dp"
-            android:layout_marginRight="4dp"
-            android:background="@drawable/bg_widget_counter_green"
-            android:gravity="center"
-            android:text="@string/zero"
-            android:textSize="12sp"/>
-
-        <TextView
-            android:id="@+id/counterNotDone_widget"
-            android:layout_width="24dp"
-            android:layout_height="24dp"
-            android:layout_marginEnd="4dp"
-            android:layout_marginRight="4dp"
-            android:background="@drawable/bg_widget_counter_red"
-            android:gravity="center"
-            android:text="@string/zero"
-            android:textSize="12sp"/>
-
-    </LinearLayout>
-
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="#50000000"
         android:padding="5dp">
 
         <TextView

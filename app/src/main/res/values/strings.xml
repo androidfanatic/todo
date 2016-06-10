@@ -15,4 +15,6 @@
     <string name="task_label">Task Label</string>
     <string name="new_task">New Task</string>
     <string name="preference">Preferences</string>
+    <string name="pref_key_fg">pref_fg</string>>
+    <string name="pref_key_bg">pref_bg</string>
 </resources>
