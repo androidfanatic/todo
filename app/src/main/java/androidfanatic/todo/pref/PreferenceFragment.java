@@ -10,3 +10,4 @@ public class PreferenceFragment extends android.preference.PreferenceFragment {
         addPreferencesFromResource(R.xml.preferences);
     }
 }
+
